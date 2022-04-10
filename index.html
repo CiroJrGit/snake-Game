@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Snake Game</title>
+
+    <link rel="shotcurt icon" href="">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+</head>
+
+<body>
+    <div id="game-box" class="class-position">
+        <div id="score-box">
+            <p>Placar:  <span id="score">0</span></p>
+            <p>Recorde: <span id="record"></span></p>
+        </div>
+        <canvas id="snake-board" width="600" height="580"></canvas>
+    </div>
+    
+    <div id="main-menu" class="class-position class-flex active">
+        <h1>SNAKE<span id="color-g">G</span>AME</h1>
+
+        <canvas id="snake-menu" width="715" height="220"></canvas>
+
+        <div class="buttons">
+            <button class="play" onclick="playGameToggle()">JOGAR</button>
+            <button class="configs" onclick="configMenuToggle()"><i class="fas fa-cog"></i></button>
+            <button class="configs" onclick="comingInSoon()">
+                <i class="fas fa-trophy"></i>
+                <p id="msg-rank">Em breve!</p>
+            </button>
+        </div>
+    </div>
+
+    <div id="config-menu" class="class-position class-flex">
+        <div class="config-itens">
+            <span>COR DA COMIDA:</span>
+
+            <div class="mrg-itens">
+                <div class="wrapper-color">
+                   <input type="color" name="color-food" id="color-food" value="#42FF91">
+                </div>
+            </div>
+        </div>
+
+        <div class="config-itens">
+            <span>COR DA COBRA:</span>
+
+            <div class="mrg-itens">
+                <div class="wrapper-color">
+                    <input type="color" name="color-snake" id="color-snake" value="#ADD9E6">
+                </div>
+            </div>
+        </div>
+
+        <div class="config-itens">
+            <span>VELOCIDADE:</span>
+
+            <div class="mrg-itens">
+                <div id="speed-input">
+                    <button id="prev" class="btn-speed" onclick="prevLevelSpeed()"><i class="fas fa-caret-left"></i></button>
+                    <input type="number" name="lvl-speed" id="lvl-speed" min="1" max="5" value="2" readonly>
+                    <button id="next" class="btn-speed" onclick="nextLevelSpeed()"><i class="fas fa-caret-right"></i></button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="config-itens">
+            <span>TEMA CLARO/ESCURO:</span>
+
+            <div class="mrg-itens">
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="theme-toggle">
+                        <input id="theme-toggle" type="checkbox"/>
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div id="buttons-config">
+            <button class="bnt-config" onclick="configMenuToggle()">Confirmar</button>
+            <button class="bnt-config" onclick="setColorDefault()"><i class="fas fa-sync-alt"></i></button>
+        </div>
+    </div>
+
+    <div id="end-menu" class="class-position class-flex">
+        <h2>VOCÊ PERDEU!</h2>
+        <p id="record-msg"></p>
+        <button class="btn-end" onclick="restartGame()">REINICIAR</button>
+        <button class="btn-end" onclick="backToMenuToggle()">VOLTAR</button>
+    </div>
+    <script src="js/menus.js"></script>
+    <script src="js/snake-menu.js"></script>
+    <script src="js/snake-game.js"></script>
+</body>
+</html>
